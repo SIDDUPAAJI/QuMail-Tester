@@ -1,0 +1,27 @@
+🚀 Getting Started: Your First Secure Transmission
+Follow these steps to send and verify a Level 2 (Quantum AES) encrypted message:
+
+1. Configure Your Identity
+Before sending, you must link the terminal to your mail provider:
+Open the Key Configuration menu from the sidebar.
+Enter your Email Address and your Gmail App Password (standard passwords will not work due to SMTP security).
+Click Save Configuration. The terminal will now remember your identity for future sessions.
+
+2. Compose and Encrypt
+Enter the Recipient's Email, a Subject, and your message in the Payload box.
+Select Quantum AES-256 (Level 2) from the Security Protocol dropdown.
+Click Send Encrypted.
+What happens behind the scenes: The app silently fetches a high-entropy key and a unique Key ID from the KMS Simulator, encrypts your text, and transmits the secure packet.
+
+3. Decrypt and Restore
+To test the receiver side, copy the DATA string from the received email or your Encrypted Outbox.
+Paste that string back into the Message Payload box in the main terminal.
+Ensure the Security Protocol is still set to the level used for encryption.
+Click the Inbox button in the sidebar.
+
+The terminal will use the active session key to restore the plaintext and display a DECRYPTION_SUCCESS notification.
+
+🛡️ Forensic Verification Test
+To prove the security of the transmission, paste that same DATA string into the QuMailInterceptor tool.
+Click Attempt Brute Force.
+You will see that while the tool can identify the packet, it cannot recover the message because it lacks the Quantum Key associated with that specific transmission.
